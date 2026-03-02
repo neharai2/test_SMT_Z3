@@ -1,53 +1,59 @@
 import json
 from z3 import *
-# initial constraints:
-# ------------------------
-# Load tasks from JSON
-# ------------------------
+
+# -------------------------
+# Load JSON
+# -------------------------
 with open("tasks.json", "r") as f:
     data = json.load(f)
 
+num_nodes = data["num_nodes"]
 tasks = data["tasks"]
 n = len(tasks)
 
-# ------------------------
-# Create Z3 solver
-# ------------------------
+# -------------------------
+# Create solver
+# -------------------------
 solver = Solver()
 
-# ------------------------
-# Variables
-# ------------------------
+# -------------------------
+# Decision Variables
+# -------------------------
 
-# Start times (decision variables)
+# Start times
 start = [Int(f"start_{i}") for i in range(n)]
 
-# Node assignment (0 or 1)
+# Node assignment
 node = [Int(f"node_{i}") for i in range(n)]
 
-# ------------------------
-# Constraints
-# ------------------------
+# -------------------------
+# Task constraints
+# -------------------------
 
 for i, task in enumerate(tasks):
 
+    release = task["release_time"]
     wcet = task["wcet"]
     deadline = task["deadline"]
-    release = task["start_time"]
+    allowed = task["allowed_nodes"]
 
-    # Start after release time
+    # Release time
     solver.add(start[i] >= release)
 
-    # Finish before deadline
+    # Deadline
     solver.add(start[i] + wcet <= deadline)
 
-    # Assign to node 0 or 1
-    solver.add(Or(node[i] == 0, node[i] == 1))
+    # Node must be valid index
+    solver.add(node[i] >= 0, node[i] < num_nodes)
+
+    # Node must be in allowed_nodes
+    allowed_constraints = [node[i] == k for k in allowed]
+    solver.add(Or(allowed_constraints))
 
 
-# ------------------------
+# -------------------------
 # Non-overlap constraints
-# ------------------------
+# -------------------------
 
 for i in range(n):
     for j in range(i + 1, n):
@@ -55,7 +61,6 @@ for i in range(n):
         wcet_i = tasks[i]["wcet"]
         wcet_j = tasks[j]["wcet"]
 
-        # If tasks are on same node → enforce no overlap
         same_node = node[i] == node[j]
 
         no_overlap = Or(
@@ -66,19 +71,23 @@ for i in range(n):
         solver.add(Implies(same_node, no_overlap))
 
 
-# ------------------------
+# -------------------------
 # Solve
-# ------------------------
+# -------------------------
 
 if solver.check() == sat:
     model = solver.model()
-    print("Schedule found:\n")
+    print("\nFeasible schedule found:\n")
 
     for i in range(n):
+        assigned_node = model[node[i]].as_long()
+        start_time = model[start[i]].as_long()
+        finish_time = start_time + tasks[i]["wcet"]
+
         print(f"Task {i}:")
-        print("  Node:", model[node[i]])
-        print("  Start:", model[start[i]])
-        print("  Finish:", model[start[i]].as_long() + tasks[i]["wcet"])
+        print(f"  Node   : {assigned_node}")
+        print(f"  Start  : {start_time}")
+        print(f"  Finish : {finish_time}")
         print()
 else:
     print("No feasible schedule found.")
