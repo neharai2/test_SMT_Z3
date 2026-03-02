@@ -1,6 +1,6 @@
 import json
 from z3 import *
-
+# initial constraints:
 # ------------------------
 # Load tasks from JSON
 # ------------------------
