@@ -1,6 +1,8 @@
 import json
 from z3 import *
 
+from KPathFinding import compute_min_path_costs
+
 # -------------------------
 # Load JSON
 # -------------------------
@@ -23,6 +25,21 @@ n = len(jobs)
 # Map real node IDs <-> solver indices
 node_id_to_index = {nid: idx for idx, nid in enumerate(compute_nodes)}
 index_to_node_id = {idx: nid for nid, idx in node_id_to_index.items()}
+
+# Get Paths from KPathFinding
+min_path_cost = compute_min_path_costs("example_30T_fixed.json", k=2)
+
+# Build cost matrix aligned to solver node indices
+cost_matrix = [[0 for _ in range(num_nodes)] for _ in range(num_nodes)]
+
+for src_real in compute_nodes:
+    for dst_real in compute_nodes:
+
+        src_idx = node_id_to_index[src_real]
+        dst_idx = node_id_to_index[dst_real]
+
+        # Take shortest path only
+        cost_matrix[src_idx][dst_idx] = min_path_cost[(src_real, dst_real)][0]
 
 # ------ visualization purpose only
 # -------------------------     
@@ -55,6 +72,22 @@ def solve_with_objective(objective_name):
     # Recreate decision variables
     start = [Int(f"start_{i}") for i in range(n)]
     node = [Int(f"node_{i}") for i in range(n)]
+
+
+    # -------------------------
+    # Build Z3 CostArray to represent the cost matrix
+    # -------------------------
+    CostArray = Array('CostArray', IntSort(), ArraySort(IntSort(), IntSort()))
+
+    cost_array_expr = CostArray
+
+    for i in range(num_nodes):
+        row_array = K(IntSort(), 0)
+        for j in range(num_nodes):
+            row_array = Store(row_array, j, cost_matrix[i][j])
+        cost_array_expr = Store(cost_array_expr, i, row_array)
+
+    solver.add(CostArray == cost_array_expr)
 
     # -------------------------
     # Job constraints
@@ -99,11 +132,18 @@ def solve_with_objective(objective_name):
     # Dependency constraints
     # -------------------------
     for msg in messages:
+
         sender = msg["sender"]
         receiver = msg["receiver"]
+        sender_wcet = jobs[sender]["wcet_fullspeed"]
+        comm_cost = Select(
+        Select(CostArray, node[sender]),
+        node[receiver]
+    )
 
+        # Since job_id == index, we use directly
         solver.add(
-            start[receiver] >= start[sender] + jobs[sender]["wcet_fullspeed"]
+            start[receiver] >= start[sender] + sender_wcet + comm_cost
         )
 
     # -------------------------

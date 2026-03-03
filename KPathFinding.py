@@ -35,15 +35,15 @@ def compute_min_path_costs(json_file, k=2):
             dst = processor_nodes[j]
 
             if src == dst:
-                min_cost_dict[(src, dst)] = 0
+                min_cost_dict[(src, dst)] = [0]* k
                 continue
 
             paths = k_shortest_paths(G, src, dst, k)
             costs = [path_cost(G, p) for p in paths]
-            min_cost_dict[(src, dst)] = min(costs)
+            min_cost_dict[(src, dst)] = costs
 
     return min_cost_dict
-    # print(min_cost_dict)
+    #print(min_cost_dict)
 
 
-# compute_min_path_costs("example_30T_fixed.json", k=2)
+# compute_min_path_costs("example_15T_fixed.json", k=2)
