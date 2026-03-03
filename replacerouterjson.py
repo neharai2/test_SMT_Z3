@@ -64,4 +64,4 @@ def fix_can_run_on(input_path, output_path):
 
 
 if __name__ == "__main__":
-    fix_can_run_on("example_15T.json", "example_15T_fixed.json")
+    fix_can_run_on("example_30T.json", "example_30T_fixed.json")

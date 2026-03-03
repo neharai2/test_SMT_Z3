@@ -4,7 +4,7 @@ from z3 import *
 # -------------------------
 # Load JSON
 # -------------------------
-with open("example_15T_fixed.json", "r") as f:
+with open("example_30T_fixed.json", "r") as f:
     data = json.load(f)
 
 jobs = data["application"]["jobs"]
@@ -25,7 +25,7 @@ node_id_to_index = {nid: idx for idx, nid in enumerate(compute_nodes)}
 index_to_node_id = {idx: nid for nid, idx in node_id_to_index.items()}
 
 # ------ visualization purpose only
-# -------------------------
+# -------------------------     
 # Build dependency map
 # -------------------------
 # job_id -> list of dependency job_ids
@@ -176,7 +176,7 @@ def solve_with_objective(objective_name):
 
         output_schedule["nodes"] = all_nodes_list
 
-        filename = f"schedule_{objective_name}.json"
+        filename = f"schedule_{objective_name}_30T.json"
 
         with open(filename, "w") as f:
             json.dump(output_schedule, f, indent=4)
