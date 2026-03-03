@@ -2,243 +2,213 @@
     "schedule": [
         {
             "job_id": 0,
-            "assigned_node": 11,
-            "start_time": 0,
+            "assigned_node": 3,
+            "start_time": 534,
             "wcet_fullspeed": 81,
-            "finish_time": 81,
-            "deadline": 547
+            "finish_time": 615
         },
         {
             "job_id": 1,
             "assigned_node": 3,
-            "start_time": 0,
+            "start_time": 682,
             "wcet_fullspeed": 87,
-            "finish_time": 87,
-            "deadline": 329
+            "finish_time": 769
         },
         {
             "job_id": 2,
-            "assigned_node": 2,
-            "start_time": 213,
+            "assigned_node": 7,
+            "start_time": 682,
             "wcet_fullspeed": 78,
-            "finish_time": 291,
-            "deadline": 408
+            "finish_time": 760
         },
         {
             "job_id": 3,
-            "assigned_node": 7,
-            "start_time": 331,
+            "assigned_node": 2,
+            "start_time": 755,
             "wcet_fullspeed": 39,
-            "finish_time": 370,
-            "deadline": 538
+            "finish_time": 794
         },
         {
             "job_id": 4,
-            "assigned_node": 2,
-            "start_time": 462,
+            "assigned_node": 7,
+            "start_time": 269,
             "wcet_fullspeed": 33,
-            "finish_time": 495,
-            "deadline": 533
+            "finish_time": 302
         },
         {
             "job_id": 5,
-            "assigned_node": 1,
-            "start_time": 5,
+            "assigned_node": 2,
+            "start_time": 685,
             "wcet_fullspeed": 38,
-            "finish_time": 43,
-            "deadline": 113
+            "finish_time": 723
         },
         {
             "job_id": 6,
-            "assigned_node": 2,
-            "start_time": 378,
+            "assigned_node": 1,
+            "start_time": 637,
             "wcet_fullspeed": 84,
-            "finish_time": 462,
-            "deadline": 462
+            "finish_time": 721
         },
         {
             "job_id": 7,
             "assigned_node": 7,
-            "start_time": 370,
+            "start_time": 645,
             "wcet_fullspeed": 37,
-            "finish_time": 407,
-            "deadline": 407
+            "finish_time": 682
         },
         {
             "job_id": 8,
-            "assigned_node": 2,
-            "start_time": 103,
+            "assigned_node": 1,
+            "start_time": 371,
             "wcet_fullspeed": 72,
-            "finish_time": 175,
-            "deadline": 176
+            "finish_time": 443
         },
         {
             "job_id": 9,
             "assigned_node": 1,
-            "start_time": 116,
+            "start_time": 755,
             "wcet_fullspeed": 91,
-            "finish_time": 207,
-            "deadline": 358
+            "finish_time": 846
         },
         {
             "job_id": 10,
-            "assigned_node": 2,
-            "start_time": 312,
+            "assigned_node": 3,
+            "start_time": 620,
             "wcet_fullspeed": 62,
-            "finish_time": 374,
-            "deadline": 374
+            "finish_time": 682
         },
         {
             "job_id": 11,
-            "assigned_node": 1,
-            "start_time": 103,
+            "assigned_node": 2,
+            "start_time": 794,
             "wcet_fullspeed": 6,
-            "finish_time": 109,
-            "deadline": 400
+            "finish_time": 800
         },
         {
             "job_id": 12,
-            "assigned_node": 2,
-            "start_time": 69,
+            "assigned_node": 1,
+            "start_time": 721,
             "wcet_fullspeed": 34,
-            "finish_time": 103,
-            "deadline": 136
+            "finish_time": 755
         },
         {
             "job_id": 13,
-            "assigned_node": 3,
-            "start_time": 109,
+            "assigned_node": 2,
+            "start_time": 562,
             "wcet_fullspeed": 58,
-            "finish_time": 167,
-            "deadline": 260
+            "finish_time": 620
         },
         {
             "job_id": 14,
-            "assigned_node": 3,
-            "start_time": 378,
+            "assigned_node": 2,
+            "start_time": 0,
             "wcet_fullspeed": 28,
-            "finish_time": 406,
-            "deadline": 508
+            "finish_time": 28
         },
         {
             "job_id": 15,
-            "assigned_node": 7,
-            "start_time": 243,
+            "assigned_node": 2,
+            "start_time": 655,
             "wcet_fullspeed": 30,
-            "finish_time": 273,
-            "deadline": 355
+            "finish_time": 685
         },
         {
             "job_id": 16,
-            "assigned_node": 1,
-            "start_time": 207,
+            "assigned_node": 11,
+            "start_time": 28,
             "wcet_fullspeed": 89,
-            "finish_time": 296,
-            "deadline": 483
+            "finish_time": 117
         },
         {
             "job_id": 17,
             "assigned_node": 2,
-            "start_time": 0,
+            "start_time": 637,
             "wcet_fullspeed": 18,
-            "finish_time": 18,
-            "deadline": 144
+            "finish_time": 655
         },
         {
             "job_id": 18,
             "assigned_node": 1,
-            "start_time": 412,
+            "start_time": 52,
             "wcet_fullspeed": 74,
-            "finish_time": 486,
-            "deadline": 486
+            "finish_time": 126
         },
         {
             "job_id": 19,
             "assigned_node": 7,
-            "start_time": 0,
+            "start_time": 302,
             "wcet_fullspeed": 69,
-            "finish_time": 69,
-            "deadline": 234
+            "finish_time": 371
         },
         {
             "job_id": 20,
-            "assigned_node": 1,
-            "start_time": 0,
+            "assigned_node": 3,
+            "start_time": 615,
             "wcet_fullspeed": 5,
-            "finish_time": 5,
-            "deadline": 422
+            "finish_time": 620
         },
         {
             "job_id": 21,
-            "assigned_node": 2,
-            "start_time": 175,
+            "assigned_node": 1,
+            "start_time": 126,
             "wcet_fullspeed": 38,
-            "finish_time": 213,
-            "deadline": 221
+            "finish_time": 164
         },
         {
             "job_id": 22,
-            "assigned_node": 3,
-            "start_time": 296,
+            "assigned_node": 1,
+            "start_time": 443,
             "wcet_fullspeed": 82,
-            "finish_time": 378,
-            "deadline": 489
+            "finish_time": 525
         },
         {
             "job_id": 23,
             "assigned_node": 1,
-            "start_time": 43,
+            "start_time": 164,
             "wcet_fullspeed": 48,
-            "finish_time": 91,
-            "deadline": 317
+            "finish_time": 212
         },
         {
             "job_id": 24,
-            "assigned_node": 11,
-            "start_time": 91,
+            "assigned_node": 1,
+            "start_time": 562,
             "wcet_fullspeed": 75,
-            "finish_time": 166,
-            "deadline": 196
+            "finish_time": 637
         },
         {
             "job_id": 25,
-            "assigned_node": 3,
-            "start_time": 167,
+            "assigned_node": 1,
+            "start_time": 212,
             "wcet_fullspeed": 90,
-            "finish_time": 257,
-            "deadline": 261
+            "finish_time": 302
         },
         {
             "job_id": 26,
             "assigned_node": 7,
-            "start_time": 273,
+            "start_time": 422,
             "wcet_fullspeed": 21,
-            "finish_time": 294,
-            "deadline": 572
+            "finish_time": 443
         },
         {
             "job_id": 27,
             "assigned_node": 7,
-            "start_time": 326,
+            "start_time": 557,
             "wcet_fullspeed": 5,
-            "finish_time": 331,
-            "deadline": 492
+            "finish_time": 562
         },
         {
             "job_id": 28,
-            "assigned_node": 7,
-            "start_time": 294,
+            "assigned_node": 1,
+            "start_time": 525,
             "wcet_fullspeed": 32,
-            "finish_time": 326,
-            "deadline": 500
+            "finish_time": 557
         },
         {
             "job_id": 29,
-            "assigned_node": 1,
-            "start_time": 296,
+            "assigned_node": 2,
+            "start_time": 28,
             "wcet_fullspeed": 76,
-            "finish_time": 372,
-            "deadline": 550
+            "finish_time": 104
         }
     ]
 }
